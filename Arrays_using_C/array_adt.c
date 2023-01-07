@@ -54,6 +54,24 @@ void lin_search(struct Array* arr,int key){
     printf("Key Not Found\n");
 }
 
+void Reverse(struct Array* arr){
+    for(int i=0,j=arr->length-1; i<j; i++,j--){
+        int temp = arr->A[i];
+        arr->A[i] = arr->A[j];
+        arr->A[j] = temp;
+    }
+}
+
+void CheckSorted(struct Array* arr){
+    for(int i=0; i<arr->length-1; i++){
+        if(arr->A[i] > arr->A[i+1]) {
+            printf("\nNot Sorted\n");
+            return;
+        }
+    }
+    printf("\nSorted\n");
+}
+
 int main(){
     
     struct Array array;
@@ -73,6 +91,9 @@ int main(){
     Delete(&array,1);
     lin_search(&array,9);
     DisplayArray(array);
+    Reverse(&array);
+    DisplayArray(array);
+    CheckSorted(&array);
 
     return 0;
 }
