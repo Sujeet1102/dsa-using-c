@@ -17,7 +17,7 @@ void DisplayArray(struct Array arr){
 
 struct Array* Merge(struct Array* A1,struct Array* A2,struct Array* A3){
     int i=0,j=0,k=0;
-    for(; i<A1->length || j<A2->length;){
+    for(; i<A1->length && j<A2->length;){
         if(A1->A[i]<A2->A[j]){
             A3->A[k] = A1->A[i];
             k++;
